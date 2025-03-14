@@ -1,0 +1,22 @@
+.fai__notification__container {
+    background-color: red;
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.fai__notification__header {
+    height: 100px;
+}
+
+.fai__notification_body {
+    height: 100px;
+}
+
+.top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
