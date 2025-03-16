@@ -1,10 +1,21 @@
+:root {
+    --notification-success: rgb(221, 235, 157);
+    --notification-success-light: rgba(221, 235, 157, 0.5);
+}
+
 .fai__notification__container {
+    position: absolute;
     background-color: red;
     width: 400px;
     height: 100px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    transition: opacity 2s ease, transform 2s ease;
+    z-index: 9999;   
+}
+
+.fai__notification__container.show{
+    display: block;            /* Muestra la notificación */
+  opacity: 1;                /* Hace que sea visible */
+  transform: translateY(0);  /* Asegura que no haya desplazamiento extra */
 }
 
 .fai__notification__header {
@@ -15,8 +26,64 @@
     height: 100px;
 }
 
-.top {
-    position: absolute;
+.fai__notification__container.top {
+    top: 10px;              
+    left: 50%;                
+    transform: translateX(-50%); 
+}
+
+.fai__notification__container.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fai__notification__container.bottom {
+    bottom: 10px;              
+    left: 50%;                
+    transform: translateX(-50%); 
+}
+
+.fai__notification__container.top-left {
     top: 10px;
     left: 10px;
+}
+
+.fai__notification__container.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.fai__notification__container.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.fai__notification__container.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.fai__notification__container.center-left {
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.fai__notification__container.center-right {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.fai__notification__container.success {
+    background-color: var(--notification-success-light);
+    border: 2px solid var(--notification-success);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 374px) {
+    .fai__notification__container {
+        width: 95%;
+    }
 }
