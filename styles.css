@@ -1,29 +1,28 @@
 :root {
     --notification-success: rgb(221, 235, 157);
-    --notification-success-light: rgba(221, 235, 157, 0.5);
+    --notification-success-light: rgba(221, 235, 157, 0.2);
+    --notification-green: #5DB996;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
 .fai__notification__container {
     position: absolute;
     background-color: red;
-    width: 400px;
-    height: 100px;
+    width: auto;
+    height: auto;
     transition: opacity 2s ease, transform 2s ease;
     z-index: 9999;   
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
 }
 
 .fai__notification__container.show{
-    display: block;            /* Muestra la notificación */
   opacity: 1;                /* Hace que sea visible */
   transform: translateY(0);  /* Asegura que no haya desplazamiento extra */
-}
-
-.fai__notification__header {
-    height: 100px;
-}
-
-.fai__notification_body {
-    height: 100px;
 }
 
 .fai__notification__container.top {
@@ -76,10 +75,56 @@
     transform: translateY(-50%);
 }
 
-.fai__notification__container.success {
+.fai__notification__container.variant-success {
     background-color: var(--notification-success-light);
     border: 2px solid var(--notification-success);
     border-radius: 10px;
+}
+
+.fai__notification__icon {
+    font-size: 30px;
+    width: auto;
+    display: grid;
+    place-content: center;
+    padding: 5px;
+}
+
+.fai__notification__body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fai__notification__close {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fai__notification__close:hover {
+    background-color: var(--notification-success);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.fa-circle-check {
+    color: var(--notification-green);
+}
+
+button {
+    cursor: pointer;
+}
+
+#btn_success {
+    padding: 10px 20px;
+    background-color: green;
+    color: #ffffff;
 }
 
 @media screen and (max-width: 374px) {
