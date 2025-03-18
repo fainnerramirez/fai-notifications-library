@@ -8,7 +8,8 @@
     --notification-warning-light: rgba(255, 180, 51, 0.5);
     --notification-info: rgb(120, 134, 199);
     --notification-info-light: rgba(120, 134, 199, 0.5);
-    --notification-hover: rgb(239, 239, 239);
+    --notification-milk: rgb(248, 250, 252);
+    --notification-gray: rgb(154, 166, 178);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -129,6 +130,22 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     color: #1b1b1b;
+    transition: all .3s ease;
+}
+
+.fai__notification__close:hover {
+    background-color: var(--notification-milk);
+    font-weight: 700;
+}
+
+.fai__notification__title {
+    color: #1b1b1b;
+    font-weight: bolder;
+}
+
+.fai__notification__message {
+    color: #1b1b1b;
+    font-weight: 100;
 }
 
 .fa-circle-check {
@@ -159,6 +176,14 @@ button {
 
 #btn_error {
     background-color: red;
+}
+
+#btn_info {
+    background-color: blue;
+}
+
+#btn_warning {
+    background-color: yellow;
 }
 
 @media screen and (max-width: 374px) {

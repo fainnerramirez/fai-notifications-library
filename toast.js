@@ -103,9 +103,11 @@ const createNotification = (options = options_notification) => {
 
     const buttonSuccess = document.querySelector("#btn_success");
     const buttonError = document.querySelector("#btn_error");
+    const buttonInfo = document.querySelector("#btn_info");
+    const buttonWarning = document.querySelector("#btn_warning");
 
     const notificationContainer = document.createElement("div");
-    notificationContainer.classList.add("fai__notification__container" ,options.pos);
+    notificationContainer.classList.add("fai__notification__container" , options.pos);
 
     const notificationBody = createBodyNotification(options);
     notificationContainer.appendChild(notificationBody);
@@ -123,6 +125,20 @@ const createNotification = (options = options_notification) => {
         document.body.appendChild(notificationContainer);
         assigmentEvent();
     });
+
+    buttonInfo.addEventListener("click", () => {
+        clearClassNotification(notificationContainer);
+        notificationContainer.classList.add("show", "variant-info");
+        document.body.appendChild(notificationContainer);
+        assigmentEvent();
+    });
+
+    buttonWarning.addEventListener("click", () => {
+        clearClassNotification(notificationContainer);
+        notificationContainer.classList.add("show", "variant-warning");
+        document.body.appendChild(notificationContainer);
+        assigmentEvent();
+    });
 }
 
 const main = () => {
@@ -132,7 +148,7 @@ const main = () => {
         message: "Your action was completed successfully.",
         duration: 5000,
         pos: "center",
-        type: "error"
+        type: "warning"
     }
 
     createNotification(options);
