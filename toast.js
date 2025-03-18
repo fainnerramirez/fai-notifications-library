@@ -85,9 +85,14 @@ const closeNotification = () => {
 }
 
 const closeByTimeDuration = (duration = 3000) => { // volver la duracion de la notificación dinámico dada por el usuario
+    
+    if(timeDurationNotification){
+        clearTimeout(timeDurationNotification);
+    }
+
     timeDurationNotification = setTimeout(() => {
-        console.log("Se cerro la notificacion");
         closeNotification();
+        console.log("Se cerro la notificacion")
     }, duration);
 }
 
@@ -124,11 +129,11 @@ const createNotification = (options = options_notification) => {
 const main = () => {
 
     const options = {
-        title: "Congratulations!",
-        message: "Your action was completed successfully.",
+        title: "Something went wrong!",
+        message: "A problem occurred while downloading the app",
         duration: 5000,
         pos: "center",
-        type: "neutral"
+        type: "error"
     }
 
     createNotification(options);
