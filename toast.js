@@ -16,7 +16,8 @@ const type_notification = {
     SUCCESS: "success",
     ERROR: "error",
     WARNING: "warning",
-    INFO: "info"
+    INFO: "info",
+    NEUTRAL: "neutral"
 }
 
 const options_notification = {
@@ -55,6 +56,7 @@ const createBodyNotification = (options) => {
         case type_notification.ERROR: iconNotification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>'; break;
         case type_notification.INFO: iconNotification.innerHTML = '<i class="fa-solid fa-circle-info"></i>'; break;
         case type_notification.WARNING: iconNotification.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>'; break;
+        case type_notification.NEUTRAL: iconNotification.innerHTML = '<i class="fa-solid fa-question"></i>'; break;
         default: iconNotification.innerHTML = '<i class="fa-solid fa-face-meh-blank"></i>'; break;
     }
 
@@ -105,6 +107,7 @@ const createNotification = (options = options_notification) => {
     const buttonError = document.querySelector("#btn_error");
     const buttonInfo = document.querySelector("#btn_info");
     const buttonWarning = document.querySelector("#btn_warning");
+    const buttonNeutral = document.querySelector("#btn_neutral");
 
     const notificationContainer = document.createElement("div");
     notificationContainer.classList.add("fai__notification__container" , options.pos);
@@ -139,6 +142,13 @@ const createNotification = (options = options_notification) => {
         document.body.appendChild(notificationContainer);
         assigmentEvent();
     });
+
+    buttonNeutral.addEventListener("click", () => {
+        clearClassNotification(notificationContainer);
+        notificationContainer.classList.add("show", "variant-neutral");
+        document.body.appendChild(notificationContainer);
+        assigmentEvent();
+    });
 }
 
 const main = () => {
@@ -148,7 +158,7 @@ const main = () => {
         message: "Your action was completed successfully.",
         duration: 5000,
         pos: "center",
-        type: "warning"
+        type: "neutral"
     }
 
     createNotification(options);
