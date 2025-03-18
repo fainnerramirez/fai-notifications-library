@@ -84,16 +84,16 @@ const closeNotification = () => {
     if(container) container.remove();
 }
 
-const closeByTimeDuration = (duration = 1000000) => { // volver la duracion de la notificación dinámico dada por el usuario
+const closeByTimeDuration = (duration = 3000) => { // volver la duracion de la notificación dinámico dada por el usuario
     timeDurationNotification = setTimeout(() => {
         console.log("Se cerro la notificacion");
         closeNotification();
     }, duration);
 }
 
-const assigmentEvent = () => {
+const assigmentEvent = (duration) => {
     closeNotificationEvent();
-    closeByTimeDuration();
+    closeByTimeDuration(duration);
 }
 
 const clearClassNotification = (wrapper) => {
@@ -103,51 +103,21 @@ const clearClassNotification = (wrapper) => {
 
 const createNotification = (options = options_notification) => {
 
-    const buttonSuccess = document.querySelector("#btn_success");
-    const buttonError = document.querySelector("#btn_error");
-    const buttonInfo = document.querySelector("#btn_info");
-    const buttonWarning = document.querySelector("#btn_warning");
-    const buttonNeutral = document.querySelector("#btn_neutral");
-
+    const buttonsVariant = document.querySelectorAll(".button-action");
     const notificationContainer = document.createElement("div");
     notificationContainer.classList.add("fai__notification__container" , options.pos);
 
     const notificationBody = createBodyNotification(options);
     notificationContainer.appendChild(notificationBody);
 
-    buttonSuccess.addEventListener("click", () => {
-        clearClassNotification(notificationContainer);
-        notificationContainer.classList.add("show", "variant-success");
-        document.body.appendChild(notificationContainer);
-        assigmentEvent();
-    });
-    
-    buttonError.addEventListener("click", () => {
-        clearClassNotification(notificationContainer);
-        notificationContainer.classList.add("show", "variant-error");
-        document.body.appendChild(notificationContainer);
-        assigmentEvent();
-    });
-
-    buttonInfo.addEventListener("click", () => {
-        clearClassNotification(notificationContainer);
-        notificationContainer.classList.add("show", "variant-info");
-        document.body.appendChild(notificationContainer);
-        assigmentEvent();
-    });
-
-    buttonWarning.addEventListener("click", () => {
-        clearClassNotification(notificationContainer);
-        notificationContainer.classList.add("show", "variant-warning");
-        document.body.appendChild(notificationContainer);
-        assigmentEvent();
-    });
-
-    buttonNeutral.addEventListener("click", () => {
-        clearClassNotification(notificationContainer);
-        notificationContainer.classList.add("show", "variant-neutral");
-        document.body.appendChild(notificationContainer);
-        assigmentEvent();
+    buttonsVariant.forEach(elem => {
+        elem.addEventListener("click", (e) => {
+            const variant = e.target.dataset.variant;
+            clearClassNotification(notificationContainer);
+            notificationContainer.classList.add("show", variant);
+            document.body.appendChild(notificationContainer);
+            assigmentEvent(options.duration);
+        });
     });
 }
 
