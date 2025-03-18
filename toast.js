@@ -94,9 +94,9 @@ const assigmentEvent = () => {
     closeByTimeDuration();
 }
 
-const clearClassNotification = () => {
-    const wrapper = document.querySelector(".fai__notification__container");
+const clearClassNotification = (wrapper) => {
     Array.from(wrapper.classList).forEach(e => e.startsWith("variant") && wrapper.classList.remove(e));
+    console.log("Se limpio la consola: ", wrapper.classList);
 }
 
 const createNotification = (options = options_notification) => {
@@ -111,14 +111,14 @@ const createNotification = (options = options_notification) => {
     notificationContainer.appendChild(notificationBody);
 
     buttonSuccess.addEventListener("click", () => {
-        Array.from(notificationContainer.classList).forEach(cl => cl.startsWith("variant") && notificationContainer.classList.remove(cl));
+        clearClassNotification(notificationContainer);
         notificationContainer.classList.add("show", "variant-success");
         document.body.appendChild(notificationContainer);
         assigmentEvent();
     });
     
     buttonError.addEventListener("click", () => {
-        Array.from(notificationContainer.classList).forEach(cl => cl.startsWith("variant") && notificationContainer.classList.remove(cl));
+        clearClassNotification(notificationContainer);
         notificationContainer.classList.add("show", "variant-error");
         document.body.appendChild(notificationContainer);
         assigmentEvent();

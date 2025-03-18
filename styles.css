@@ -8,6 +8,7 @@
     --notification-warning-light: rgba(255, 180, 51, 0.5);
     --notification-info: rgb(120, 134, 199);
     --notification-info-light: rgba(120, 134, 199, 0.5);
+    --notification-hover: rgb(239, 239, 239);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -130,14 +131,20 @@ h1, h2, h3, h4, h5, h6 {
     color: #1b1b1b;
 }
 
-.fai__notification__close:hover {
-    background-color: var(--notification-success);
-    color: #ffffff;
-    cursor: pointer;
-}
-
 .fa-circle-check {
     color: var(--notification-green);
+}
+
+.fa-circle-exclamation {
+    color: var(--notification-error);
+}
+
+.fa-circle-info {
+    color: var(--notification-info);
+}
+
+.fa-triangle-exclamation {
+    color: var(--notification-warning);
 }
 
 button {
