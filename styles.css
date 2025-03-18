@@ -1,7 +1,13 @@
 :root {
     --notification-success: rgb(221, 235, 157);
-    --notification-success-light: rgba(221, 235, 157, 0.2);
+    --notification-success-light: rgba(221, 235, 157, 0.5);
     --notification-green: #5DB996;
+    --notification-error: rgb(216, 64, 64);
+    --notification-error-light: rgb(216, 64, 64, 0.5);
+    --notification-warning: rgb(255, 180, 51);
+    --notification-warning-light: rgba(255, 180, 51, 0.5);
+    --notification-info: rgb(120, 134, 199);
+    --notification-info-light: rgba(120, 134, 199, 0.5);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .fai__notification__container.show{
@@ -78,7 +85,22 @@ h1, h2, h3, h4, h5, h6 {
 .fai__notification__container.variant-success {
     background-color: var(--notification-success-light);
     border: 2px solid var(--notification-success);
-    border-radius: 10px;
+}
+
+.fai__notification__container.variant-error {
+    background-color: var(--notification-error-light);
+    border: 2px solid var(--notification-error);
+}
+
+.fai__notification__container.variant-warning {
+    background-color: var(--notification-warning-light);
+    border: 2px solid var(--notification-warning);
+}
+
+/*estos variantes debe ir deacuerdo al typo de notificacion que el usuario quiere*/
+.fai__notification__container.variant-info {
+    background-color: var(--notification-info-light);
+    border: 2px solid var(--notification-info);
 }
 
 .fai__notification__icon {
@@ -105,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #1b1b1b;
 }
 
 .fai__notification__close:hover {
@@ -119,12 +142,16 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
     cursor: pointer;
+    padding: 10px 20px;
+    color: #ffffff;
 }
 
 #btn_success {
-    padding: 10px 20px;
     background-color: green;
-    color: #ffffff;
+}
+
+#btn_error {
+    background-color: red;
 }
 
 @media screen and (max-width: 374px) {
