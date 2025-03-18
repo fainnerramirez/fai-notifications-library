@@ -154,7 +154,7 @@ const createNotification = (options = options_notification) => {
 const main = () => {
 
     const options = {
-        title: "Success!",
+        title: "Congratulations!",
         message: "Your action was completed successfully.",
         duration: 5000,
         pos: "center",
