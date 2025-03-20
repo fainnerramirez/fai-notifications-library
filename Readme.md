@@ -13,4 +13,4 @@ La librería Fai Notification permite mostrar notificaciones personalizables en 
 
 ## Estilos de las notificaciones
 
-<img src="./notifications-views.png" alt="imagen de estilos de notificaciones" />
+<img src="./notifications-views.png" alt="imagen de estilos de notificaciones" width="500px" height="400px" />
