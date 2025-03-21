@@ -25,19 +25,19 @@ class ToastyFai {
     }
 
     error(message, options = {}) {
-        this.show(message, { ...options, type: "error" });
+        this.#show(message, { ...options, type: "error" });
     }
 
     info(message, options = {}) {
-        this.show(message, { ...options, type: "info" });
+        this.#show(message, { ...options, type: "info" });
     }
 
     warning(message, options = {}) {
-        this.show(message, { ...options, type: "warning" });
+        this.#show(message, { ...options, type: "warning" });
     }
 
     neutral(message, options = {}) {
-        this.show(message, { ...options, type: "neutral" });
+        this.#show(message, { ...options, type: "neutral" });
     }
 
     #clearClass(element) {
@@ -48,18 +48,17 @@ class ToastyFai {
         const buttonsVariant = document.querySelectorAll(".button-action");
         const notificationContainer = document.createElement("div");
         notificationContainer.id = `#toast-${toast.id}`
-        notificationContainer.classList.add("fai__notification__container", options.pos);
+        notificationContainer.classList.add("toastifai__notification__container", options.pos);
 
         const notificationBody = createBodyNotification(options);
         notificationContainer.appendChild(notificationBody);
 
         buttonsVariant.forEach(elem => {
             elem.addEventListener("click", (e) => {
-                const variant = e.target.dataset.variant;
+                const { dataset } = e.target;
                 this.#clearClass(notificationContainer);
-                notificationContainer.classList.add("show", variant);
+                notificationContainer.classList.add("show", dataset.variant);
                 document.body.appendChild(notificationContainer);
-                // assigmentEvent(options.duration);
             });
         });
     }
